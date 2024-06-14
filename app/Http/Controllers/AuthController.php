@@ -1,8 +1,10 @@
 <?php
  
 namespace App\Http\Controllers;
- 
+
+use App\Models\ApiToken;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -34,7 +36,7 @@ class AuthController extends Controller
         ]);
 
         Auth::login($user);
-
+        
         return redirect('/quotes');
     }
 
@@ -52,7 +54,7 @@ class AuthController extends Controller
  
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
+            
             return redirect()->intended('/quotes');
         }
  
@@ -75,5 +77,20 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    /**
+     * Return token is user logged in
+     *
+     * @return JsonResponse
+     */
+    public function getToken(): JsonResponse
+    {
+        if (Auth::check()) {
+            $token = ApiToken::generateToken();
+            return response()->json(['token' => $token]);
+        }
+        
+        return response()->json('Unauthorized', 401);
     }
 }

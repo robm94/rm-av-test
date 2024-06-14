@@ -7,9 +7,16 @@ use Illuminate\Support\Collection;
 interface KanyeApiDriver
 {
     /**
-     * Return list of quotes from service
+     * Return list of cached quotes
      *
      * @return Collection
      */
     public function getQuotes(): Collection;
+    
+    /**
+     * Return list of quotes direct from service
+     *
+     * @return Collection
+     */
+    public function getLatestQuotes(): Collection;
 }

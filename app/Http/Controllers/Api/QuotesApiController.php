@@ -19,4 +19,16 @@ class QuotesApiController extends Controller
 
         return response()->json($quotes->random(5));
     }
+
+    /**
+     * Returns 5 random from refreshed list
+     *
+     * @return JsonResponse
+     */
+    public function refresh(): JsonResponse
+    {
+        $quotes = Kanye::getLatestQuotes();
+
+        return response()->json($quotes->random(5));
+    }
 }

@@ -26,7 +26,7 @@ async function getToken() {
         let expiry = new Date();
         expiry.setMinutes(expiry.getMinutes() + 119);
     
-        document.cookie = 'api_token=' + token + ';expires=' + expiry.toUTCString + ';path=/;samesite=strict';
+        document.cookie = 'api_token=' + token + '; expires=' + expiry.toUTCString() + '; path=/; samesite=strict';
     } catch (error) {
         window.location.replace('/logout');
     }

@@ -25,7 +25,7 @@ class ApiAuth
 
         //dd($token->expires_at);
         if (!$token || ($token->expires_at && $token->expires_at->isPast())) {
-            return response()->json('Unauthorized', 401);
+            return response()->json('Unauthorized expired', 401);
         } 
 
         return $next($request);

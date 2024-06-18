@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
- 
+
+/**
+ * @codeCoverageIgnore
+ */
 class QuotesController extends Controller
 {
     /**

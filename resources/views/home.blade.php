@@ -8,6 +8,9 @@
                     <label for="email" class="flex-1 mr-4 mb-4 md:mb-0">Email</label>
                     <input type="email" id="email" name="email" class="w-64 p-2 rounded text-black" required autocomplete="username" />
                 </div>
+                @error('email')
+                    <div class="contents text-red-600">{{ $message }}</div>
+                @enderror
                 
                 <div class="flex flex-col items-start md:inline-flex md:flex-row md:items-center">
                     <label for="password" class="flex-1 mr-4 mb-4 md:mb-0">Password</label>
@@ -32,7 +35,7 @@
                 
                 <div class="flex flex-col items-start md:inline-flex md:flex-row md:items-center">
                     <label for="reg_password" class="flex-1 mr-4 mb-4 md:mb-0">Password</label>
-                    <input type="password" id="reg_password" name="password" class="w-64 p-2 rounded text-black" required />
+                    <input type="password" id="reg_password" name="password" class="w-64 p-2 rounded text-black" required autocomplete="new-password"/>
                 </div>
                 @error('password')
                     <div class="text-red-600">{{ $message }}</div>
@@ -40,7 +43,7 @@
                 
                 <div class="flex flex-col items-start md:inline-flex md:flex-row md:items-center">
                     <label for="reg_password_confirm" class="flex-1 mr-4 mb-4 md:mb-0">Confirm Password</label>
-                    <input type="password" id="reg_password_confirm" name="password_confirmation" class="w-64 p-2 rounded text-black" required />
+                    <input type="password" id="reg_password_confirm" name="password_confirmation" class="w-64 p-2 rounded text-black" required autocomplete="new-password"/>
                 </div>
                 @error('password_confirmation')
                     <div class="text-red-600">{{ $message }}</div>

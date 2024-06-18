@@ -10,9 +10,9 @@ Route::get('/', function () {
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/token', [AuthController::class, 'getToken']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/quotes', [QuotesController::class, 'show']);
     Route::get('/logout', [AuthController::class, 'logOut']);
-    Route::get('/token', [AuthController::class, 'getToken']);
 });

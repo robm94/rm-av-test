@@ -15,5 +15,7 @@
         
         <div id="quotes_list" class="mt-4 flex flex-col gap-4"></div>
         <x-quote />
+
+        <p id="token_text" class="mt-8"></p>
     </div>
 </x-layout>
